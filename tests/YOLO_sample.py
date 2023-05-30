@@ -1,4 +1,17 @@
 from ultralytics import YOLO
-model = YOLO("yolov8n.pt")
+# モデルを選択
+#model = YOLO("yolov8n.pt")
+model = YOLO("yolov8x.pt")
+#model = YOLO("yolov8x-seg.pt")
 
-results = model("https://ultralytics.com/images/bus.jpg", save=True) 
+#model.to("cuda")
+
+# 検出対象ファイル指定
+#results = model("https://ultralytics.com/images/bus.jpg", save=True)
+#results = model("./images/test2.jpg", save=True)
+#results = model("./images/test2.mp4", save=True)
+
+# WEBカメラからリアルタイム検出
+results = model(0 , show=True)
+for i in enumerate(results):
+    print(i)
